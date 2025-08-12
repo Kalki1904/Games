@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgba(25,25,25);
+                text-align: center;
+                ">
+    <style>
+        .but{
+           border-radius: 50%;
+           background: transparent;
+           border: none;
+        }
+
+
+
+    </style>
+    <h1 style="color: white;">ROCK PAPER SCISSOR</h1>
+    <script>
+        let playerChoice='';
+        let comChoice='';
+        function systemchoice(){
+        let com= Math.random();
+        if(com<=1/3){
+            comChoice='Rock';
+        }
+        else if(com>1/3 && com<=2/3){
+            comChoice='Paper';
+        }
+        else comChoice='Scissor';}
+    </script>
+    <button id="Rock" class="but"
+        onclick="
+        playerChoice='Rock'
+        systemchoice()
+        if(comChoice==='Rock'){
+            player.draw+=1;
+            message_draw()
+        }
+        else if(comChoice==='Paper'){
+            player.loss+=1;
+            message_loss()
+        }
+        else{
+            player.win+=1;
+            message_win()
+        }
+        console.log(comChoice);
+        printingresult()
+        "
+    ><img src="fist.png" alt=""></button>
+    <button id="Paper" class="but"
+        onclick="
+        playerChoice='Paper'
+        systemchoice()
+        if(comChoice==='Rock'){
+            player.win+=1;
+            message_win()
+        }
+        else if(comChoice==='Paper'){
+            player.draw+=1;
+            message_draw()
+        }
+        else{
+
+            player.loss+=1;
+            message_loss()
+        }
+        console.log(comChoice);
+        printingresult()    
+        "        
+        
+    
+    ><img src="paper.png" alt=""></button>
+    <button id="Scissorr" class="but"
+        onclick="
+        playerChoice='Scissor'
+        systemchoice()
+        if(comChoice==='Rock'){
+            player.loss+=1;
+            message_loss()
+        }
+        else if(comChoice==='Paper'){
+            player.win+=1;
+            message_win()
+        }
+        else{
+            player.draw+=1;
+            message_draw()
+        }
+        console.log(comChoice);
+        printingresult()
+        "        
+    ><img src="scissor.png" alt=""></button>
+
+    <p id="input" style="color: white;"></p>
+    <p id="score" style="color: white;"></p>
+    <button onclick="
+    player.win=0;
+    player.loss=0;
+    player.draw=0;
+    printingresult()
+    document.querySelector('#input').innerText=''
+    ">Reset Score</button>
+
+    <script>
+        
+    let player={
+        win:0,
+        loss:0,
+        draw:0
+    };
+    document.querySelector('#score').innerText=`Win:${player.win} Loss:${player.loss} Draw:${player.draw}`;
+    function printingresult(){
+        document.querySelector('#score').innerText=`Win:${player.win} Loss:${player.loss} Draw:${player.draw}`;
+    }
+    function message_win(){
+        document.querySelector('#input').innerText=`You win \n Computer choice ${comChoice} your choice ${playerChoice}`
+    }
+    function message_loss(){
+        document.querySelector('#input').innerText=`You loose  \nComputer choice ${comChoice} your choice ${playerChoice}`
+    }
+    function message_draw(){
+        document.querySelector('#input').innerText=`Draw \n Computer choice ${comChoice} your choice ${playerChoice}`
+    }
+</script>
+</body>
+</html>
